@@ -80,27 +80,61 @@ This application uses the OMDb API with the key `507fedbe`. The API provides:
 
 ## Development
 
-The TypeScript source file (`script.ts`) is the main source file. The project includes a TypeScript configuration and build system:
+This project uses TypeScript for development with automatic compilation to JavaScript.
 
 ### Prerequisites
 
-- Node.js and npm installed
-- TypeScript compiler (automatically installed when running build for the first time)
+- Node.js (version 16 or higher)
+- npm (comes with Node.js)
 
-### Development Workflow
+### Setup
 
-1. Edit the TypeScript code in `script.ts`
-2. Compile to JavaScript using one of these methods:
-
+1. **Clone the repository**
    ```bash
-   # Using the build script
-   ./build.sh
-
-   # Or directly with TypeScript compiler
-   tsc
+   git clone <repository-url>
+   cd cinelight-copilot-sonnet4
    ```
 
-3. The compiled JavaScript will be written to `dist/script.js`
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+### Building
+
+#### Option 1: Using npm scripts (recommended)
+```bash
+# Build once
+npm run build
+
+# Build and watch for changes
+npm run dev
+
+# Clean build directory
+npm run clean
+```
+
+#### Option 2: Using build script
+```bash
+./build.sh
+```
+
+#### Option 3: Manual compilation
+```bash
+npx tsc
+```
+
+The compiled JavaScript will be written to `dist/script.js`.
+
+### Deployment
+
+For deployment platforms like Netlify, Vercel, or similar:
+
+1. **Build command**: `npm run build`
+2. **Publish directory**: `.` (root directory)
+3. **Node.js version**: 18 or higher
+
+The project includes a `netlify.toml` configuration file for easy Netlify deployment.
 
 ### Project Structure with Build System
 
@@ -109,6 +143,8 @@ cinelight-copilot-sonnet4/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styles and responsive design
 ├── script.ts           # TypeScript source (main development file)
+├── package.json        # Node.js dependencies and scripts
+├── netlify.toml        # Netlify deployment configuration
 ├── dist/
 │   └── script.js       # Compiled JavaScript (auto-generated)
 ├── tsconfig.json       # TypeScript configuration

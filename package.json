@@ -1,0 +1,22 @@
+{
+  "name": "cinelight",
+  "version": "1.0.0",
+  "description": "A movie search application with dark cinema theme",
+  "main": "dist/script.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean"
+  },
+  "keywords": ["movie", "search", "cinema", "omdb"],
+  "author": "CineLight",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
