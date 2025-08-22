@@ -29,8 +29,12 @@ A lightweight, mobile-first web application for searching movies using the OMDb 
 cinelight-copilot-sonnet4/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript application logic
-├── script.ts           # TypeScript source (for development)
+├── script.ts           # TypeScript source (main development file)
+├── dist/
+│   └── script.js       # Compiled JavaScript (auto-generated)
+├── tsconfig.json       # TypeScript configuration
+├── build.sh            # Build script
+├── .gitignore          # Git ignore file
 └── README.md           # This file
 ```
 
@@ -79,22 +83,27 @@ This application uses the OMDb API with the key `507fedbe`. The API provides:
 The TypeScript source file (`script.ts`) is the main source file. The project includes a TypeScript configuration and build system:
 
 ### Prerequisites
+
 - Node.js and npm installed
 - TypeScript compiler (automatically installed when running build for the first time)
 
 ### Development Workflow
+
 1. Edit the TypeScript code in `script.ts`
 2. Compile to JavaScript using one of these methods:
+
    ```bash
    # Using the build script
    ./build.sh
-   
+
    # Or directly with TypeScript compiler
    tsc
    ```
+
 3. The compiled JavaScript will be written to `dist/script.js`
 
 ### Project Structure with Build System
+
 ```
 cinelight-copilot-sonnet4/
 ├── index.html          # Main HTML file

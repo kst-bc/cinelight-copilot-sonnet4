@@ -373,20 +373,51 @@ class UIController {
     if (!movie) return;
 
     // Set poster
-    this.detailPoster.src =
-      movie.Poster && movie.Poster !== "N/A" ? movie.Poster : "";
-    this.detailPoster.alt = movie.Title;
+    const posterContainer = this.detailPoster.parentElement;
+
+    // Always ensure placeholder exists
+    let placeholder = posterContainer?.querySelector(".poster-placeholder");
+    if (!placeholder && posterContainer) {
+      placeholder = document.createElement("div");
+      placeholder.className = "poster-placeholder";
+      placeholder.innerHTML = "<span>No Poster<br>Available</span>";
+      posterContainer.appendChild(placeholder);
+    }
 
     if (!movie.Poster || movie.Poster === "N/A") {
+      // Hide the original poster image
       this.detailPoster.style.display = "none";
-      const posterContainer = this.detailPoster.parentElement;
-      if (posterContainer) {
-        posterContainer.innerHTML = `
-                    <div class="poster-placeholder detail-poster">
-                        <span>No Poster Available</span>
-                    </div>
-                `;
+
+      // Show placeholder
+      if (placeholder) {
+        (placeholder as HTMLElement).style.display = "flex";
       }
+    } else {
+      // Set up the poster with error handling
+      this.detailPoster.src = movie.Poster;
+      this.detailPoster.alt = movie.Title;
+      this.detailPoster.style.display = "block";
+
+      // Hide placeholder initially
+      if (placeholder) {
+        (placeholder as HTMLElement).style.display = "none";
+      }
+
+      // Add error handler to show placeholder if image fails to load
+      this.detailPoster.onerror = () => {
+        this.detailPoster.style.display = "none";
+        if (placeholder) {
+          (placeholder as HTMLElement).style.display = "flex";
+        }
+      };
+
+      // Add load handler to ensure image is shown if it loads successfully
+      this.detailPoster.onload = () => {
+        this.detailPoster.style.display = "block";
+        if (placeholder) {
+          (placeholder as HTMLElement).style.display = "none";
+        }
+      };
     }
 
     // Render movie info
@@ -434,8 +465,12 @@ class UIController {
             <div class="info-item">
                 <div class="info-label">IMDb Link</div>
                 <div class="info-value">
-                    <a href="https://www.imdb.com/title/${movie.imdbID}" target="_blank">
-                        View on IMDb
+                    <a href="https://www.imdb.com/title/${movie.imdbID}" target="_blank" class="imdb-link">
+                        <svg class="link-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </a>
                 </div>
             </div>
