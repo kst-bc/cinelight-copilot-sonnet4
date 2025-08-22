@@ -10,7 +10,12 @@
     "clean": "rm -rf dist",
     "prebuild": "npm run clean"
   },
-  "keywords": ["movie", "search", "cinema", "omdb"],
+  "keywords": [
+    "movie",
+    "search",
+    "cinema",
+    "omdb"
+  ],
   "author": "CineLight",
   "license": "MIT",
   "devDependencies": {

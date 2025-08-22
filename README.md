@@ -90,6 +90,7 @@ This project uses TypeScript for development with automatic compilation to JavaS
 ### Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd cinelight-copilot-sonnet4
@@ -103,6 +104,7 @@ This project uses TypeScript for development with automatic compilation to JavaS
 ### Building
 
 #### Option 1: Using npm scripts (recommended)
+
 ```bash
 # Build once
 npm run build
@@ -115,11 +117,13 @@ npm run clean
 ```
 
 #### Option 2: Using build script
+
 ```bash
 ./build.sh
 ```
 
 #### Option 3: Manual compilation
+
 ```bash
 npx tsc
 ```

@@ -106,7 +106,7 @@ class AppState {
 // API Service
 class OMDbAPI {
   private readonly encodedApiKey = "NTA3ZmVkYmU=";
-  private readonly baseUrl = "http://www.omdbapi.com/";
+  private readonly baseUrl = "https://www.omdbapi.com/";
 
   private get apiKey(): string {
     return atob(this.encodedApiKey);
