@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineLight - Movie Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content" id="headerContent">
+          <div class="logo">
+            <svg
+              class="flash-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <h1 class="app-name">
+              <span class="cine">Cine</span><span class="light">Light</span>
+            </h1>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Start Page -->
+        <div class="page" id="startPage">
+          <div class="search-container">
+            <div class="search-input-wrapper">
+              <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="Search for movies..."
+                autocomplete="off"
+              />
+              <button type="button" id="searchButton" class="search-button">
+                <svg
+                  class="search-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="m21 21-4.35-4.35"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search Results Page -->
+        <div class="page hidden" id="resultsPage">
+          <div class="results-container">
+            <div class="search-input-wrapper results-search">
+              <input
+                type="text"
+                id="resultsSearchInput"
+                class="search-input"
+                placeholder="Search for movies..."
+                autocomplete="off"
+              />
+              <button
+                type="button"
+                id="resultsSearchButton"
+                class="search-button"
+              >
+                <svg
+                  class="search-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="m21 21-4.35-4.35"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="results-grid" id="resultsGrid">
+              <!-- Results will be populated here -->
+            </div>
+
+            <div class="pagination" id="pagination">
+              <!-- Pagination will be populated here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Page -->
+        <div class="page hidden" id="detailsPage">
+          <div class="details-container">
+            <div class="details-content">
+              <div class="poster-container">
+                <img
+                  id="detailPoster"
+                  class="detail-poster"
+                  src=""
+                  alt="Movie Poster"
+                />
+              </div>
+
+              <div class="info-container">
+                <div class="info-list" id="movieInfo">
+                  <!-- Movie info will be populated here -->
+                </div>
+              </div>
+
+              <div class="ratings-plot-container">
+                <div class="ratings-container" id="ratingsContainer">
+                  <!-- Ratings will be populated here -->
+                </div>
+                <div class="plot-container">
+                  <p id="moviePlot" class="movie-plot"></p>
+                </div>
+              </div>
+            </div>
+
+            <button id="backButton" class="back-button">
+              ← Back to Results
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p class="footer-text">
+          Developed using
+          <a
+            href="https://github.com/features/copilot"
+            target="_blank"
+            class="cursor-link"
+            >Copilot</a
+          >
+        </p>
+      </footer>
+
+      <!-- Loading Spinner -->
+      <div class="loading-overlay hidden" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
+
+    <script src="dist/script.js"></script>
+  </body>
+</html>
