@@ -105,8 +105,12 @@ class AppState {
 
 // API Service
 class OMDbAPI {
-  private readonly apiKey = "507fedbe";
+  private readonly encodedApiKey = "NTA3ZmVkYmU=";
   private readonly baseUrl = "http://www.omdbapi.com/";
+
+  private get apiKey(): string {
+    return atob(this.encodedApiKey);
+  }
 
   async searchMovies(query: string, page: number = 1): Promise<SearchResponse> {
     const url = `${this.baseUrl}?apikey=${this.apiKey}&s=${encodeURIComponent(
